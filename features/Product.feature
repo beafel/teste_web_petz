@@ -9,5 +9,5 @@ Feature: Consulta produtos no site da Petz
 
     Examples:
       |      produto      |                                     nome_produto                                     | preco_produto |
-      # |  Petisco Doguitos |        Petisco Doguitos Rodízio para Cães Adultos e Filhotes Sabor Carne - 65g       |    R$ 7,55    |
+      | Petisco Doguitos  |        Petisco Doguitos Rodízio para Cães Adultos e Filhotes Sabor Carne - 65g       |    R$ 7,55    |
       | Biscoito Dog Chow | Biscoito Dog Chow Extra Life para Cães Adultos de Raças Pequenas e Mini Sabor Frango |    R$ 20,50   |

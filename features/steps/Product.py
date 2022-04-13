@@ -29,38 +29,37 @@ def research_product(context, produto):
     context.driver.find_element(By.ID, 'search').send_keys(Keys.ENTER)
 
     print(f'Buscou por {produto}')
-    time.sleep(3)
+    time.sleep(2)
     context.driver.find_element(By.XPATH, '//body/div[9]/div[2]/categoryid[1]/div[2]/div[2]/div[3]/ul[1]/li[1]/a[2]/h3[1]').click()
 
     print(f'Selecionou o {produto}')
-    time.sleep(3)
+    time.sleep(2)
 
 
 @then(u'exibe os resultados como "{nome_produto}" e "{preco_produto}" e adiciono no carrinho')
 def validate_product(context, nome_produto, preco_produto):
     assert context.driver.find_element(By.CSS_SELECTOR, 'div.product-title').text == nome_produto
-
     print(f'Validou {nome_produto}')
 
     assert context.driver.find_element(By.CSS_SELECTOR, 'div.product-top-price').text == preco_produto
-
     print(f'Validou {preco_produto}')
 
     context.driver.find_element(By.ID, 'adicionarAoCarrinho').click()
-
     print(f'Adicionou no carrinho')
 
+    time.sleep(2)
 
 @then(u'exibe a pagina do carrinho com o "{nome_produto}" e "{preco_produto}"')
 def validate_add_cart(context, nome_produto, preco_produto):
-    assert context.driver.find_element(By.XPATH, '/html[1]/body[1]/div[4]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]').text == nome_produto
+    assert context.driver.title == 'Carrinho | Petz'
+    print(f'Validou a aba - Carrinho')
 
+    # context.driver.find_element(By.CSS_SELECTOR, 'a.button.tx-green.m-t-08.fn-s09.is-large.bg-transparent.outlined').click()
+
+'''
+    assert context.driver.find_element(By.TAG_NAME, 'div.cart-item-detail.fn-wb.money.flex.cont-start.align-itcenter').text == nome_produto
     print(f'Validou {nome_produto} no carrinho')
 
-    assert context.driver.find_element(By.CSS_SELECTOR, 'dev.cart-item-detail.fn-wb.money.flex.cont-start.align-itcenter').text == preco_produto
-
+    assert context.driver.find_element(By.CSS_SELECTOR, 'div.current-price-left').text == preco_produto
     print(f'Validou {preco_produto} no carrinho')
-
-    assert context.driver.find_element(By.CSS_SELECTOR, 'h1.title.fn-wnb.tx-blue.m-b-1').text == 'Carrinho de compras'
-
-    print(f'Validou título - Carrinho de compras')
+'''

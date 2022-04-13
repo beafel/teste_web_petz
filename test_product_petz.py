@@ -36,10 +36,11 @@ class Test_Simple_Petz():
 
         self.driver.find_element(By.CSS_SELECTOR, 'button.size-select-button').click()
         self.driver.find_element(By.ID, '151954').click()
+
         assert self.driver.find_element(By.CSS_SELECTOR, 'div.item-name').text == tamanho_produto
         print(f'Validou o tamanho!')
 
-        self.driver.implicitly_wait(20)
+        time.sleep(5)
 
         assert self.driver.find_element(By.CSS_SELECTOR, 'div.current-price-left').text == preco_produto
         print(f'Validou o preco!')
@@ -50,7 +51,6 @@ class Test_Simple_Petz():
         self.driver.find_element(By.CSS_SELECTOR, 'button#adicionarAoCarrinho.btn.btn-add-to-cart').click()
         print(f'Produto no Carrinho!')
 
-        self.driver.implicitly_wait(20)
 
         # Cart Page
         assert self.driver.find_element(By.CSS_SELECTOR, 'div.product-title').text == nome_produto
