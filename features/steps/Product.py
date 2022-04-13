@@ -56,10 +56,8 @@ def validate_add_cart(context, nome_produto, preco_produto):
 
     # context.driver.find_element(By.CSS_SELECTOR, 'a.button.tx-green.m-t-08.fn-s09.is-large.bg-transparent.outlined').click()
 
-'''
-    assert context.driver.find_element(By.TAG_NAME, 'div.cart-item-detail.fn-wb.money.flex.cont-start.align-itcenter').text == nome_produto
+    assert context.driver.find_element(By.XPATH, '//div[2]/div/div[2]/div[2]').text == nome_produto
     print(f'Validou {nome_produto} no carrinho')
 
-    assert context.driver.find_element(By.CSS_SELECTOR, 'div.current-price-left').text == preco_produto
+    assert context.driver.find_element(By.XPATH, '//div[2]/div[2]/div/div[3]').text == preco_produto
     print(f'Validou {preco_produto} no carrinho')
-'''
